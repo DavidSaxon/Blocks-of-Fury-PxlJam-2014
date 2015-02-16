@@ -8,9 +8,9 @@ The game doesn't have a win or conditions as I ran out of time.
 
 Requirements:
 
-SFML-2.1 (Window management, Access to OpenGL, Music, and Sound)
-Glew (OpenGL extensions)
-DevIL (Image loading)
-Boost (time)
+* SFML-2.1 (Window management, Access to OpenGL, Music, and Sound)
+* Glew (OpenGL extensions)
+* DevIL (Image loading)
+* Boost (time)
 
 ![picture alt](http://i62.tinypic.com/2ecdd1y.jpg)
