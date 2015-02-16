@@ -91,7 +91,9 @@ void Animation::update() {
     if (currentTime - m_lastFrameTime >= m_frameLength) {
 
         // update the amount of frames we need to
-        m_frame += (currentTime - m_lastFrameTime) / m_frameLength;
+        m_frame += static_cast<unsigned>(
+                ( currentTime - m_lastFrameTime ) / m_frameLength
+        );
 
         // loop or end the texture
         if (m_repeat) {

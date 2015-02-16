@@ -146,7 +146,7 @@ void Block::init() {
             trailPos[(index * 3) + 2] = m_transform->translation.z;
             ++index;
         }
-        for (int i = 8; i > m_trailIndex; --i) {
+        for (int i = 8; i > static_cast<int>( m_trailIndex ); --i) {
 
             if (i == 8) {
 
@@ -293,7 +293,7 @@ void Block::update() {
     if (m_dead) {
 
         if (m_transform->translation.y > -24.0f) {
-        
+
             omi::SoundPool::play(m_blockSound, false, 1.0f);
         }
         addEntity(new Explosion(m_transform->translation, "block_explosion_1"));
@@ -335,7 +335,7 @@ void Block::setPosition(const util::vec::Vector3& pos) {
         m_weaponT->translation = m_transform->translation + m_weaponOffset;
         m_engineT->translation = m_transform->translation + m_engineOffset;
     }
-    
+
     m_weaponT->rotation    = m_transform->rotation;
     m_engineT->rotation    = m_transform->rotation;
 }
@@ -446,7 +446,7 @@ void Block::playerUpdate() {
         m_bulletTimer += m_bulletSpeed * omi::fpsManager.getTimeScale();
 
         if (m_bulletTimer >= 1.0f) {
-        
+
             createBullet();
             omi::SoundPool::play(m_bulletSound, false, 1.0f);
             m_bulletTimer -= 1.0f;
@@ -470,7 +470,7 @@ void Block::enemyUpdate() {
         m_bulletTimer += m_bulletSpeed * omi::fpsManager.getTimeScale() * 0.25f;
 
         if (m_bulletTimer >= 1.0f) {
-        
+
             createBullet();
             omi::SoundPool::play(m_bulletSound, false, 0.5f);
             m_bulletTimer -= 1.0f;

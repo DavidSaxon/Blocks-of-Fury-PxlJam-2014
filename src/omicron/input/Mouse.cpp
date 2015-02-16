@@ -1,7 +1,7 @@
 #include "Input.hpp"
 
 namespace omi {
-    
+
 namespace input {
 
 //------------------------------------------------------------------------------
@@ -11,7 +11,10 @@ namespace input {
 util::vec::Vector2 getMousePos() {
 
     sf::Vector2i pos = sf::Mouse::getPosition();
-    return util::vec::Vector2(pos.x, pos.y);
+    return util::vec::Vector2(
+            static_cast<float>( pos.x ),
+            static_cast<float>( pos.y )
+    );
 }
 
 bool mousePressed(sf::Mouse::Button button) {

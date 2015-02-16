@@ -15,11 +15,11 @@ EnemyShip::EnemyShip(const util::vec::Vector3 pos, float diff) :
         util::vec::Vector3(1.0f, 1.0f, 1.0f)
     );
 
-    m_right = bool(rand() % 2);
+    m_right = ( rand() % 2 ) != 0;
     m_sideSpeed = (rand() % 1000) / 5000.0f;
 
-    if (!bool(rand() % 3)) {
-
+    if ( ( rand() % 3 ) == 0 )
+    {
         m_sideSpeed = 0.0f;
     }
 }

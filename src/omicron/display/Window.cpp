@@ -28,13 +28,18 @@ Window::Window() :
 
         // create the window using sfml
         m_window = std::unique_ptr<sf::Window>(new sf::Window(
-            sf::VideoMode(displaySettings.getSize().x, displaySettings.getSize().y),
+            sf::VideoMode(
+                static_cast<unsigned>( displaySettings.getSize().x ),
+                static_cast<unsigned>( displaySettings.getSize().y )
+            ),
             displaySettings.getTitle(), flags, settings
         ));
 
         // set the position of the window
         m_window->setPosition(sf::Vector2i(
-            displaySettings.getPos().x, displaySettings.getPos().y));
+            static_cast<int>( displaySettings.getPos().x ),
+            static_cast<int>( displaySettings.getPos().y ) )
+        );
     }
     else {
 
@@ -71,9 +76,13 @@ void Window::update() {
         if (!displaySettings.getFullscreen()) {
 
             m_window->setSize(sf::Vector2u(
-                displaySettings.getSize().x, displaySettings.getSize().y));
+                static_cast<unsigned>( displaySettings.getSize().x ),
+                static_cast<unsigned>( displaySettings.getSize().y )
+            ) );
             m_window->setPosition(sf::Vector2i(
-                displaySettings.getPos().x, displaySettings.getPos().y));
+                static_cast<int>( displaySettings.getPos().x ),
+                static_cast<int>( displaySettings.getPos().y )
+            ) );
             m_window->setTitle(displaySettings.getTitle());
         }
 
