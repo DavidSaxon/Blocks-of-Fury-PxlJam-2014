@@ -10,3 +10,4 @@ Makefile
 Release/
 cmake_install.cmake
 lib/glew-1.11.0/
+blocks_fo_fury
